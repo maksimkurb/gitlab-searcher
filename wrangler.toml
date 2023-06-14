@@ -5,8 +5,6 @@ usage_model = "bundled"
 env = { }
 
 [vars]
-GITLAB_BASE_URL="https://gitlab.acme.corp"
-GITLAB_TOKEN="glpat-xxxxxxxxx"
 
 
 [triggers]

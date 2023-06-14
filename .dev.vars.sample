@@ -1,0 +1,2 @@
+GITLAB_BASE_URL="https://gitlab.acme.corp"
+GITLAB_TOKEN="glpat-XXXXXXXXXX"

@@ -13,14 +13,20 @@ export default function buildResponse(body) {
         pre {
           display:inline;
         }
-        .search-results tr td {
-          padding: .2em 1em;
-          padding-bottom: 0.5em;
+        .user {
+          font-size: 0.8rem;
         }
-        .search-results tr.firstrow td {
-          border-bottom: none;
-          padding-bottom: .2em;
-          padding-top: 0.5em;
+        .user img {
+          width: 16px;
+          height: 16px;
+          margin-bottom: -3px;
+        }
+        .notion-id {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+        }
+        .search-results tr td {
+          padding: 1em;
         }
         .copy {
           color:#585;
@@ -32,10 +38,18 @@ export default function buildResponse(body) {
         .link a {
           text-decoration: none;
         }
+        .title {
+          margin-bottom: 0.5rem;
+        }
         .ref {
-          line-height: 1.5rem;
           margin-top: 0.25rem;
+          font-size: 0.8rem;
+        }
+        .ref, .ref a {
           color: #777;
+        }
+        .ref a {
+          text-decoration: underline;
         }
         .state {
           text-transform: uppercase;
