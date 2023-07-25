@@ -1,4 +1,4 @@
-import buildPage from './buildResponse.js';
+import buildResponse from './buildResponse.js';
 
 function onlyUnique(value, index, array) {
 	return array.indexOf(value) === index;
@@ -12,7 +12,7 @@ export default {
   buildUser(user) {
     return `<span class="user"><img src="${user.avatar_url}"> <a href="${user.web_url}">${user.name}</a></span>`;
   },
-	buildResponseItem(result, approvals) {
+	buildSearchResponseItem(result, approvals) {
     const approved = approvals && approvals.approved_by.length > 0;
 
 		return `
@@ -40,8 +40,8 @@ export default {
     </tr>
     `;
 	},
-	buildResponse(notionId, results, approvals) {
-		const rows = results.map((mr) => this.buildResponseItem(mr, approvals[mrId(mr)]));
+	buildSearchResponse(notionId, results, approvals) {
+		const rows = results.map((mr) => this.buildSearchResponseItem(mr, approvals[mrId(mr)]));
 
 		return `
     ${notionId ? `<div class="notion-id">Notion ID: <a href="https://notion.so/${notionId}">${notionId}</a></div>` : ''}
@@ -79,8 +79,6 @@ export default {
 			return new Response('Bad request: Missing `search` query param', { status: 400 });
 		}
 
-		console.log(`Search terms: ${search}`);
-
 		let results = await Promise.all(
 			search
 				.map((q) =>
@@ -112,7 +110,6 @@ export default {
 			return map;
 		}, {});
 
-
-		return buildPage(this.buildResponse(notionId, results, approvals));
+		return buildResponse(this.buildSearchResponse(notionId, results, approvals), notionId || search.join(", "));
 	},
 };

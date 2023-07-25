@@ -1,9 +1,15 @@
 
-export default function buildResponse(body) {
+export default function buildResponse(body, title) {
+  if (title == null) {
+    title = "GitLab Searcher";
+  } else {
+    title = `${title} - GitLab Searcher`;
+  }
+
   return new Response(
     `<html>
     <head>
-      <title>Поисковик MRов в GitLab</title>
+      <title>${title}</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
       <style>
