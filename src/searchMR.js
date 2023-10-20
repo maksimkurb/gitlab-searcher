@@ -93,6 +93,7 @@ export default {
 
 		results = results.flat(1);
 		results = results.filter((mr, index, self) => index === self.findIndex((otherMr) => mrId(otherMr) === mrId(mr)));
+		results = results.filter((mr) => search.find(s => mr.title != null && mr.title.includes(s)) != null);
 
 		let approvals = await Promise.all(
 			results
